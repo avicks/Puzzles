@@ -8,13 +8,13 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class FraudDetect
-{	
+{
 	public static void main(String[] args)
 	{
 		Scanner input;				// new scanner object
-		int orderCt;				// number of orders	
+		int orderCt;				// number of orders
 		int fraudCt;				// counts number of fraudulent orders
-		
+
 		input = new Scanner(System.in);
 		input.useDelimiter(",|\n");
 		orderCt = Integer.parseInt(input.nextLine());
@@ -29,7 +29,7 @@ public class FraudDetect
 		String[] credit = new String[orderCt];
 		boolean[] fraud = new boolean[orderCt];
 		fraudCt = 0;
-						
+
 		for(int y = 0; y < orderCt; y++)
 		{
 			orderID[y] = Integer.parseInt(input.next());
@@ -42,7 +42,7 @@ public class FraudDetect
 			credit[y] = input.next();
 			fraud[y] = false;
 		}
-		
+
 		// Cleans up emails and addresses based on specifications.
 		for(int q = 0; q < orderCt; q++)
 		{
@@ -56,7 +56,7 @@ public class FraudDetect
 				email[q] = email[q].substring(0, (email[q].indexOf("."))) +
 					email[q].substring((email[q].indexOf(".") + 1), email[q].length());
 			}
-			
+
 			// Cleans up the road abbreviations to match regardless of user input
 			if(address[q].contains("street"))
 			{
@@ -68,28 +68,28 @@ public class FraudDetect
 			{
 				Pattern pattern = Pattern.compile("road");
 				Matcher matcher = pattern.matcher(address[q]);
-				address[q] = matcher.replaceAll("rd.");				
+				address[q] = matcher.replaceAll("rd.");
 			}
-			
+
 			// Cleans up state names to match in every case regardless of user input
 			if(state[q].contains("illinois"))
 			{
 				Pattern pattern = Pattern.compile("illinois");
 				Matcher matcher = pattern.matcher(state[q]);
 				state[q] = matcher.replaceAll("il");
-				
+
 			}
 			else if(state[q].contains("new york"))
 			{
 				Pattern pattern = Pattern.compile("new york");
 				Matcher matcher = pattern.matcher(state[q]);
-				state[q] = matcher.replaceAll("ny");			
+				state[q] = matcher.replaceAll("ny");
 			}
 			else if(state[q].contains("california"))
 			{
 				Pattern pattern = Pattern.compile("california");
 				Matcher matcher = pattern.matcher(state[q]);
-				state[q] = matcher.replaceAll("ca");				
+				state[q] = matcher.replaceAll("ca");
 			}
 		}
 
@@ -113,7 +113,7 @@ public class FraudDetect
 				}
 			}
 		}
-		
+
 		for(int k = 0; k < orderCt; k++)	// determines number of fraud orders
 		{
 			if(fraud[k] == true)
