@@ -1,11 +1,9 @@
-This repo contains personal solutions and attempts to the various problems on programming exercises. Included are:
+This repo contains personal solutions and attempts to various programming exercises.
+Included are:
 
-CodeSprint 2 by InterviewStreet:
+Yodle's JuggleFest
 
-  1. Groupon's Fraud Detect (Java)
+Groupon's Fraud Detect (Completed for CodeSprint 2, held by InterviewStreet)
 
-Spotify's Code Challenge
-
-  1. Three-State Memory Problem
-
-  2. Troll Problem
+Spotify's Three-State Memory (Code Challenge)
+Spotify's Troll Problem (Code Challenge)
